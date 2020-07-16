@@ -1,0 +1,9 @@
+header{
+    padding: 20px;
+    background-color: rgb(68, 168, 38);
+}
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}

@@ -1,0 +1,89 @@
+
+
+<!-- <div >
+  <h1 class="text-center py-5 "><span >P</span>ort<span>f</span>olio<span></span></h1> 
+
+</div> -->
+<div>
+
+  <div  class="animate three">
+    <h1 class="text-center py-5 "> <span>P</span><span>O</span><span>R</span><span>T</span>  
+  <span>F</span><span>O</span><span>L</span><span>I</span><span>O</span></h1>
+
+</div>
+
+</div>
+<div class="accordian">
+
+<ul>
+<li>
+  <div class="image_title">
+  
+    <p style="color: aliceblue; font-size: small;">PortFolio :  
+    <a href="https://github.com/RdaBouazzaoui"><i class="fa fa-github"></i> </a></p>
+  </div> 
+  <a href="#">
+    <img src="./assets/img/portfolioProject.png"/>
+  </a>
+</li>
+<li>
+  <div class="image_title">
+    <a href="#">Toy Story 2</a>
+  </div>
+  <a href="#">
+    <img src="./assets/img/portfolioProject.png"/>
+  </a>
+</li>
+<li>
+  <div class="image_title">
+    <a href="#">Wall-E</a>
+  </div>
+  <a href="#">
+    <img src="./assets/img/portfolioProject.png"/>
+  </a>
+</li>
+<li>
+  <div class="image_title">
+    <a href="#">Up</a>
+  </div>
+  <a href="#">
+    <img src="./assets/img/portfolioProject.png"/>
+  </a>
+</li>
+<li>
+  <div class="image_title">
+    <a href="#">Cars 2</a>
+  </div>
+  <a href="#">
+    <img src="http://thecodeplayer.com/uploads/media/8k3N3EL.jpg"/>
+  </a>
+</li>
+<!-- <li>
+  <div class="image_title">
+    <a href="#">Cars 2</a>
+  </div>
+  <a href="#">
+    <img src="http://thecodeplayer.com/uploads/media/8k3N3EL.jpg"/>
+  </a>
+</li> -->
+</ul>
+</div>
+
+<div class="text-center alert alert-dark" role="alert">
+  Si vous voulez plus de detail n'hésitez pas a visité le projet sur mon  <a href="#" class="alert-link">github</a>
+</div>
+
+<script>
+
+$(function(){
+$('.repeat').click(function(){
+    var classes =  $(this).parent().attr('class');
+      $(this).parent().attr('class', 'animate');
+      var indicator = $(this);
+      setTimeout(function(){ 
+        $(indicator).parent().addClass(classes);
+      }, 20);
+  });
+});
+</script>
+

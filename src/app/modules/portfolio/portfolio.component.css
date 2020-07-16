@@ -1,0 +1,289 @@
+/*Now the styles*/
+* {
+    margin: 0; 
+	padding: 0;
+}
+body {
+	background: #ccc; 
+	font-family: arial, verdana, tahoma;
+}
+
+/*Time to apply widths for accordian to work
+Width of image = 640px
+total images = 5
+so width of hovered image = 640px
+width of un-hovered image = 40px - you can set this to anything
+so total container width = 640 + 40*4 = 800px;
+default width = 800/5 = 160px;
+*/
+span{
+	color: brown;
+}
+.accordian {
+	width: 805px; height: 320px;
+	overflow: hidden;
+	
+	/*Time for some styling*/
+	margin: 100px auto;
+	box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+	-webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+	-moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+}
+
+/*A small hack to prevent flickering on some browsers*/
+.accordian ul {
+	width: 1200px;
+	/*This will give ample space to the last item to move
+	instead of falling down/flickering during hovers.*/
+}
+
+.accordian li {
+	position: relative;
+	display: block;
+	width: 160px;
+	float: left;
+	
+	border-left: 1px solid #888;
+	
+	box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+	
+	/*Transitions to give animation effect*/
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	/*If you hover on the images now you should be able to 
+	see the basic accordian*/
+}
+
+/*Reduce with of un-hovered elements*/
+.accordian ul:hover li {width: 40px;}
+/*Lets apply hover effects now*/
+/*The LI hover style should override the UL hover style*/
+.accordian ul li:hover {width: 640px;}
+
+
+.accordian li img {
+	display: block;
+}
+
+/*Image title styles*/
+.image_title {
+	background: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	left: 0; bottom: 0;	
+width: 640px;	
+
+}
+.image_title a {
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	padding: 20px;
+	font-size: 16px;
+}
+
+.divider-custom {
+    margin: 1.25rem 0 1.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.svg-inline--fa.fa-w-18 {
+    width: 1.125em;
+}
+
+.divider-custom.divider-light .divider-custom-line {
+    background-color: #fff;
+}
+
+.divider-custom .divider-custom-line:first-child {
+    margin-right: 1rem;
+}
+.divider-custom .divider-custom-line {
+    width: 100%;
+    max-width: 7rem;
+    height: 0.25rem;
+    background-color: #2c3e50;
+    border-radius: 1rem;
+    border-color: #2c3e50 !important;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+.text-white {
+    color: #fff !important;
+}
+
+
+/* tststsstst */
+/* @import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i'); */
+/* * {
+  margin: 0;
+  padding: 0;
+} */
+
+/* body {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  color: #999999;
+  word-wrap: break-word;
+} */
+
+/* p {
+  margin: 0 0 10px;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  margin: auto;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0 0 200px;
+} */
+
+
+/*.take-input {
+  margin: 50px 0 0;
+}
+
+.take-input input {
+  width: 400px;
+  height: 35px;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 1px solid #ececec;
+  margin: 0 15px 0 0;
+  font-size: 15px;
+}*/
+
+/* a,
+a:link,
+a:visited {
+  text-decoration: none;
+  padding: 9px 15px;
+  border: 1px solid #ececec;
+  border-radius: 5px;
+  color: gray;
+} */
+
+.animate {
+  font-size: 50px;
+  /* margin: 100px 0 0; */
+  border-bottom: 2px solid #ccc;
+}
+
+.animate span {
+  display: inline-block;
+}
+
+a.repeat {
+  display: inline-block;
+  font-size: 12px;
+  text-transform: none;
+  text-decoration: none;
+  color: orange;
+  padding: 5px 12px;
+  border: 1px solid #cecece;
+  font-weight: normal;
+  margin: 0 0 0 50px;
+  border-radius: 5px;
+  position: relative;
+  bottom: 15px;
+}
+
+.animate span:nth-of-type(2) {
+  animation-delay: .05s;
+}
+
+.animate span:nth-of-type(3) {
+  animation-delay: .1s;
+}
+
+.animate span:nth-of-type(4) {
+  animation-delay: .15s;
+}
+
+.animate span:nth-of-type(5) {
+  animation-delay: .2s;
+}
+
+.animate span:nth-of-type(6) {
+  animation-delay: .25s;
+}
+
+.animate span:nth-of-type(7) {
+  animation-delay: .3s;
+}
+
+.animate span:nth-of-type(8) {
+  animation-delay: .35s;
+}
+
+.animate span:nth-of-type(9) {
+  animation-delay: .4s;
+}
+
+.animate span:nth-of-type(10) {
+  animation-delay: .45s;
+}
+
+.animate span:nth-of-type(11) {
+  animation-delay: .5s;
+}
+
+.animate span:nth-of-type(12) {
+  animation-delay: .55s;
+}
+
+.animate span:nth-of-type(13) {
+  animation-delay: .6s;
+}
+
+.animate span:nth-of-type(14) {
+  animation-delay: .65s;
+}
+
+
+/* Animation Three */
+
+.three span {
+  color: #b10e81;
+  opacity: 0;
+  transform: translate(-300px, 0) scale(0);
+  /*animation: sideSlide .5s forwards;*/
+    -webkit-animation: sideSlide 5s infinite; /* Safari 4.0 - 8.0 */
+    animation: sideSlide 5s infinite;
+}
+
+@keyframes sideSlide {
+  60% {
+    transform: translate(20px, 0) scale(1);
+    color: #b10e81;
+  }
+  80% {
+    transform: translate(20px, 0) scale(1);
+    color: #b10e81;
+  }
+  99% {
+    transform: translate(0) scale(1.2);
+    color: #00f0ff;
+  }
+  100% {
+    transform: translate(0) scale(1);
+    opacity: 1;
+    color: #b10e81;
+  }
+}
+
