@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { ContactService } from 'src/app/services/contact.service';
 
 
 
@@ -9,34 +11,37 @@ import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  contact: FormGroup;
-  Email: any;
-  constructor(private ct: FormBuilder) { }
+
+  cont: FormGroup;
+ 
+  // dependency injection 
+  constructor(private contactServise: ContactService,private ct: FormBuilder) { }
 
   ngOnInit() {
-    this.contact = this.ct.group({  // Crée une instance de FormGroup
-      name: [],                   // Crée une instance de FormControl
-      email: [], 
-      telephone: [],
+    this.resetContact();
+   }
+
+    resetContact(){ 
+      // Create an instance of FormGroup
+    this.cont = this.ct.group({ 
+      // Create the instances of FormControl    
+      name: ['',Validators.required],                   
+      email: ['',Validators.required], 
+      telephon: [],
       subject: [],
-      message:[],                  // Crée une instance de FormControl
+      message:[],                 
     });
-  }
 
-  login(f:NgForm) {
+    }
 
-    this.Email.send({
-  Host : "app.smtp2go.com",
-  Username : "reda.bouazaoui10@gmail.com",
-  Password : "RedaBou10",
-  To : this.contact.value.email,
-  From : "reda.bouazaoui10@gmail.com",
-  Subject : this.contact.value.subject,
-  Body : `
-   <i>This is sent as a feedback from my resume page.</i> <br/> <b>Name: </b>${this.contact.value.name} <br /> <b>Email: </b>${this.contact.value.email}<br /> <b>Subject: </b>${this.contact.value.subject}<br /> <b>Message:</b> <br /> ${this.contact.value.message} <br><br> <b>~End of Message.~</b> `
-  }).then( message => {alert(message); f.resetForm(); } );
-    
+  sendMessage() {
+    //send tow emails one to contact and one to admin
+  if(this.contactServise.sendMessage(this.cont.value).subscribe((contact) => {console.log("contact",contact);}))
+  {
+
+  //save the contact in data base
+  this.contactServise.save(this.cont.value).subscribe((contact) => {console.log("contact",contact);this.cont.reset()});
   }
-    // this.emailService.sendToSingleUser(this.contact.value.email,this.contact.value.subject,this.contact.value.message);
-    // console.log('Données du formulaire...', this.contact.value);
+  }
+   
   }

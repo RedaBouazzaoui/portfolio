@@ -9,7 +9,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { PortfolioComponent } from 'src/app/modules/portfolio/portfolio.component';
 import { ContactComponent } from 'src/app/modules/contact/contact.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
-
+import{HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -19,7 +19,7 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
     SharedModule,
     ReactiveFormsModule,
     FormsModule,
-    
+    HttpClientModule
    
   ],
   declarations: [
