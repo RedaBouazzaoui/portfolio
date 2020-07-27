@@ -23,6 +23,8 @@
              <div class="col-md-8">
                 <form [formGroup]="cont" (ngSubmit)="sendMessage()" class="contact-form" >
                    <div class="row">
+
+
                       <div class="col-xl-6" >
                          <input class="form-control" type="text" placeholder="name" formControlName="name" >
                          <div *ngIf="cont.controls['name'].invalid && (cont.controls['name'].dirty || cont.controls['name'].touched)" class="alert alert-danger">
@@ -31,6 +33,8 @@
                          </div>
                          </div>
                         </div>
+
+
                       <div class="col-xl-6">
                          <input type="text" placeholder="email" formControlName="email" >
                          <div *ngIf="cont.controls['email'].invalid && (cont.controls['email'].dirty || cont.controls['email'].touched)" class="alert alert-danger">
@@ -39,16 +43,20 @@
                          </div>
                          </div>
                       </div>
+
+
                       <div class="col-xl-6">
                          <input type="text" placeholder="subject" formControlName="subject">
                       </div>
                       <div class="col-xl-6">
                          <input type="text" placeholder="telephone" formControlName="telephon">
                       </div>
+
                       <div class="col-xl-12">
                          <textarea placeholder="message" cols="30" rows="10"formControlName="message" ></textarea>
                          <input type="submit" value="send message" [disabled]="cont.pristine || cont.invalid" class="btn">
                       </div>
+                      
                    </div>
                 </form>
              </div>

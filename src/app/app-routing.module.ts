@@ -4,6 +4,7 @@ import { DefaultComponent } from './layout/default/default.component';
 import { AboutComponent } from './modules/about/about.component';
 import { PortfolioComponent } from './modules/portfolio/portfolio.component';
 import { ContactComponent } from './modules/contact/contact.component';
+import { CommentComponent } from './modules/comment/comment.component';
 // import { FormBuilder, FormGroup } from '@angular/forms';
 
 const routes: Routes = [
@@ -25,6 +26,10 @@ children:[
   {
     path:'contact',
     component: ContactComponent
+  },
+  {
+    path:'comment',
+    component: CommentComponent
   }
 ]
 

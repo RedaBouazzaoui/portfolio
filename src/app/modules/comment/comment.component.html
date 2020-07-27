@@ -1,0 +1,59 @@
+<div class="content">
+  <!-- title -->
+<div class="row my-4">
+<div class="col-md-8 mx-auto">
+  <h2>liste de commentaire</h2>
+</div>
+</div>
+
+<!-- forms add comment -->
+<div class="row">
+  <div class="col-md-8 mx-auto">
+    <form [formGroup]="comt" (ngSubmit)="addComment()" class="comment-form" >
+       <div>
+           <label>nom / prenom</label>
+           <input type="text" class="form-control" formControlName="name">
+           
+           <label>Titre de poste actuel</label>
+           <input type="text" class="form-control" formControlName="currentPosition">
+
+
+           <label for="exampleFormControlTextarea2">commentaire</label>
+           <textarea type="text" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" formControlName="comment"></textarea>
+          
+       </div>
+       <button class="btn btn-success btn-block mx-auto" type="submit">
+        <i class="fa fa-send"></i>  Add commet</button>
+      </form>
+    </div>
+  </div> 
+
+  <!-- show all comment  -->
+  <div class="row my-4">
+    <div class="col-md-8 mx-auto">
+     <ul class="list-group">
+
+      <li *ngFor="let comt of comments" class="list-group-item">
+      <div>
+      <img class="d-flex rounded-circle avatar z-depth-1-half mr-3" src="assets/img/profile.png"
+        alt="Avatar">
+        <h5 class="mt-0 font-weight-bold blue-text">{{comt.name}}</h5>
+        <span> {{comt.currentPosition}} </span>cc
+      </div>
+      <div class="media-body my-4">
+       
+       <p> {{comt.comment}}</p>
+    
+        
+        </div>
+
+      </li>
+
+     </ul>
+
+
+
+      
+      </div>
+    </div>
+</div>

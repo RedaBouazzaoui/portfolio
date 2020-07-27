@@ -10,6 +10,7 @@ import { PortfolioComponent } from 'src/app/modules/portfolio/portfolio.componen
 import { ContactComponent } from 'src/app/modules/contact/contact.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import{HttpClientModule} from '@angular/common/http';
+import { CommentComponent } from 'src/app/modules/comment/comment.component';
 
 @NgModule({
   imports: [
@@ -19,14 +20,16 @@ import{HttpClientModule} from '@angular/common/http';
     SharedModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+
    
   ],
   declarations: [
     DefaultComponent,
     AboutComponent,
     PortfolioComponent,
-    ContactComponent
+    ContactComponent,
+    CommentComponent
   ]
 })
 export class DefaultModule { }
