@@ -104,35 +104,35 @@ echo Handling node.js deployment.
 call :SelectNodeVersion
  
 :: 2. Install npm packages
-if EXIST "%DEPLOYMENT_SOURCE%\package.json" (
+IF EXIST "%DEPLOYMENT_SOURCE%\package.json" (
   pushd "%DEPLOYMENT_SOURCE%"
   call :ExecuteCmd !NPM_CMD! install
-  if !ERRORLEVEL! NEQ 0 goto error
+  IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )
  
 :: 3. Angular Prod Build
-if EXIST "%DEPLOYMENT_SOURCE%/.angular-cli.json" (
+IF EXIST "%DEPLOYMENT_SOURCE%/.angular-cli.json" (
 echo Building App in %DEPLOYMENT_SOURCE%…
 pushd "%DEPLOYMENT_SOURCE%"
 call :ExecuteCmd !NPM_CMD! run build
-if !ERRORLEVEL! NEQ 0 goto error
+IF !ERRORLEVEL! NEQ 0 goto error
 popd
 )
  
 :: 4. Copy Web.config
-if EXIST "%DEPLOYMENT_SOURCE%\web.config" (
+IF EXIST "%DEPLOYMENT_SOURCE%\web.config" (
   pushd "%DEPLOYMENT_SOURCE%"
  :: the next line is optional to fix 404 error see section #8
   call :ExecuteCmd cp web.config dist\
-  if !ERRORLEVEL! NEQ 0 goto error
+  IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )
  
 :: 5. KuduSync
-if /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
-  call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_SOURCE%/dist" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANifEST_PATH%" -p "%PREVIOUS_MANifEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
-  if !ERRORLEVEL! NEQ 0 goto error
+IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
+  call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_SOURCE%/dist" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
+  IF !ERRORLEVEL! NEQ 0 goto error
 )
 # echo Handling node.js deployment.
 
