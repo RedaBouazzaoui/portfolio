@@ -83,14 +83,9 @@
             ],
             "scripts": [],
             "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              "src/web.config",
-              {
-                "glob": "assets/**",
-                "input": "src",
-                "output": "/"
-              }
+              { "glob": "**/*", "input": "src/assets/", "output": "/assets/" },
+              { "glob": "favicon.ico", "input": "src/", "output": "/" },
+              { "glob": "web.config", "input": "src/", "output": "/" }
             ]
           }
         },
