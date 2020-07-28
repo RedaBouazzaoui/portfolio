@@ -139,7 +139,7 @@ popd
 
 1. KuduSync
 if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
-  "$KUDU_SYNC_CMD" -v 50 -f "$DEPLOYMENT_SOURCE" -t "$DEPLOYMENT_TARGET/dest/Portfolio2" -n "$NEXT_MANifEST_PATH" -p "$PREVIOUS_MANifEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
+  "$KUDU_SYNC_CMD" -v 50 -f "$DEPLOYMENT_SOURCE/dest/Portfolio2" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANifEST_PATH" -p "$PREVIOUS_MANifEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
   exitWithMessageOnError "Kudu Sync failed"
 fi
 
