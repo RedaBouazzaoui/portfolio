@@ -104,13 +104,21 @@ echo Handling node.js deployment.
 :: 1. Select node version
 call :SelectNodeVersion
 
-:: 2. Install npm packages
-IF EXIST "%DEPLOYMENT_SOURCE%\package.json" (
-  pushd "%DEPLOYMENT_SOURCE%"
-  call :ExecuteCmd !NPM_CMD! install --production
-  IF !ERRORLEVEL! NEQ 0 goto error
-  popd
-)
+# :: 2. Install npm packages
+# IF EXIST "%DEPLOYMENT_SOURCE%\package.json" (
+#   pushd "%DEPLOYMENT_SOURCE%"
+#   call :ExecuteCmd !NPM_CMD! install --production
+#   IF !ERRORLEVEL! NEQ 0 goto error
+#   popd
+# )
+# 3. Install npm packages
+if [ -e "$DEPLOYMENT_SOURCE/package.json" ]; then
+  cd "$DEPLOYMENT_SOURCE"
+  echo "Running $NPM_CMD install --production"
+  eval $NPM_CMD install --production
+  exitWithMessageOnError "npm failed"
+  cd - > /dev/null
+fi
 
 :: 3. Angular Prod Build
 IF EXIST "%DEPLOYMENT_SOURCE%/.angular-cli.json" (
@@ -123,11 +131,20 @@ IF !ERRORLEVEL! NEQ 0 goto error
 popd
 )
 
-:: 4. KuduSync
-IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
-  call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_SOURCE%/dist" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.sh"
-  IF !ERRORLEVEL! NEQ 0 goto error
-)
+# :: 4. KuduSync
+# IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
+#   call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_SOURCE%/dist/" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.sh"
+#   IF !ERRORLEVEL! NEQ 0 goto error
+# )
+
+1. KuduSync
+if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
+  "$KUDU_SYNC_CMD" -v 50 -f "$DEPLOYMENT_SOURCE" -t "$DEPLOYMENT_TARGET/dest/Portfolio2" -n "$NEXT_MANifEST_PATH" -p "$PREVIOUS_MANifEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
+  exitWithMessageOnError "Kudu Sync failed"
+fi
+
+
+# ///////////////////olde version/////////////////////////////////////////////////
 # echo Handling node.js deployment.
 
 # # 1. KuduSync
