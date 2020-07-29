@@ -1,6 +1,11 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
+import 'core-js/es6/symbol';
+import 'core-js/es6/object';
+import 'core-js/es6/string';
+import 'core-js/es6/array';
 
+import 'intl';
 module.exports = function (config) {
   config.set({
     basePath: '',
