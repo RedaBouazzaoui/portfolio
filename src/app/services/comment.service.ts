@@ -7,7 +7,7 @@ import { Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class CommentService {
-  backEndUrlComment: string="http://localhost:8088/comments"
+  backEndUrlComment: string="http://portfoliobackend-env.eba-t2kvgmv2.ca-central-1.elasticbeanstalk.com/comments"
  
   constructor(private http: HttpClient) { }
 

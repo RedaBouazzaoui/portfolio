@@ -6,8 +6,8 @@ import { Contact } from '../models/contact';
   providedIn: 'root'
 })
 export class ContactService {
-   backEndUrlSave: string="http://localhost:8088/contacts"
-   backEndUrlSendMessage: string="http://localhost:8088/contactez-moi"
+   backEndUrlSave: string="http://portfoliobackend-env.eba-t2kvgmv2.ca-central-1.elasticbeanstalk.com/contacts"
+   backEndUrlSendMessage: string="http://portfoliobackend-env.eba-t2kvgmv2.ca-central-1.elasticbeanstalk.com/contactez-moi"
 
   constructor(private http:HttpClient) { }
 
