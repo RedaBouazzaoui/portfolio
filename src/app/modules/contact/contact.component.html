@@ -26,10 +26,10 @@
 
 
                       <div class="col-xl-6" >
-                         <input class="form-control" type="text" placeholder="name" formControlName="name" >
+                         <input class="form-control" type="text" placeholder="nom" formControlName="name" >
                          <div *ngIf="cont.controls['name'].invalid && (cont.controls['name'].dirty || cont.controls['name'].touched)" class="alert alert-danger">
                            <div *ngIf="cont.controls['name'].errors.required">
-                           Name is required.
+                              Le nom est requis.
                          </div>
                          </div>
                         </div>
@@ -39,7 +39,7 @@
                          <input type="text" placeholder="email" formControlName="email" >
                          <div *ngIf="cont.controls['email'].invalid && (cont.controls['email'].dirty || cont.controls['email'].touched)" class="alert alert-danger">
                            <div *ngIf="cont.controls['email'].errors.required">
-                           Name is required.
+                              L'email est requis.
                          </div>
                          </div>
                       </div>
@@ -54,7 +54,7 @@
 
                       <div class="col-xl-12">
                          <textarea placeholder="message" cols="30" rows="10"formControlName="message" ></textarea>
-                         <input type="submit" value="send message" [disabled]="cont.pristine || cont.invalid" class="btn">
+                         <input type="submit" value="envoye" [disabled]="cont.pristine || cont.invalid" class="btn">
                       </div>
                       
                    </div>
@@ -64,11 +64,11 @@
                 <div class="single-contact">
                    <i class="fa fa-map-marker"></i>
                    <h5>Address</h5>
-                   <p>1981 av des erables montreal qc canada</p>
+                   <p>1981 av des erables montreal,QC,CANADA</p>
                 </div>
                 <div class="single-contact">
                    <i class="fa fa-phone"></i>
-                   <h5>Phone</h5>
+                   <h5>Téléphone</h5>
                    <p>(+1) 514 991 2026</p>
                 </div>
                 <div class="single-contact">

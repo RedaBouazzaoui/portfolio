@@ -2,7 +2,7 @@
   <!-- title -->
 <div class="row my-4">
 <div class="col-md-8 mx-auto">
-  <h2>liste de commentaire</h2>
+  <h2>commentaire</h2>
 </div>
 </div>
 
@@ -11,19 +11,19 @@
   <div class="col-md-8 mx-auto">
     <form [formGroup]="comt" (ngSubmit)="addComment()" class="comment-form" >
        <div>
-           <label>nom / prenom</label>
+           <label>Nom / Prénom :</label>
            <input type="text" class="form-control" formControlName="name">
            
-           <label>Titre de poste actuel</label>
+           <label>Titre de poste actuel :</label>
            <input type="text" class="form-control" formControlName="currentPosition">
 
 
-           <label for="exampleFormControlTextarea2">commentaire</label>
+           <label for="exampleFormControlTextarea2">commentaire :</label>
            <textarea type="text" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" formControlName="comment"></textarea>
           
        </div>
        <button class="btn btn-success btn-block mx-auto" type="submit">
-        <i class="fa fa-send"></i>  Add commet</button>
+        <i class="fa fa-send"></i>  ajouter</button>
       </form>
     </div>
   </div> 
