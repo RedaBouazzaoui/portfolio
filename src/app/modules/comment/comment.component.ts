@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommentService } from 'src/app/services/comment.service';
 import{Comment} from 'src/app/models/comment'
+import { Observable } from 'rxjs';
+import { JsonPipe } from '@angular/common';
 
 
 @Component({
@@ -11,16 +13,10 @@ import{Comment} from 'src/app/models/comment'
 })
 export class CommentComponent implements OnInit {
    comt : FormGroup
-   comments:Comment[]=[];
-   
-  //  comments= [
-  // //    {name:"reda",
-  // //  comment:"testobjectcomment",
-  // //  currentPosition:"testeur app"},
-  // //  {name:"anas",
-  // //  comment:"testobjectcomment",
-  // //  currentPosition:"testeur app"}
-  //  ];
+   comments: Comment[];
+ 
+   test: object;
+ 
   // dependency injection 
   constructor(private CommentServise: CommentService ,private ct: FormBuilder){}
 
@@ -28,6 +24,7 @@ export class CommentComponent implements OnInit {
     
     this.resetContact();
     this.showAll();
+    
   }
   resetContact(){ 
     // Create an instance of FormGroup
@@ -43,18 +40,12 @@ export class CommentComponent implements OnInit {
 
 showAll(){
   
-this.CommentServise.findAll().subscribe((data:any) => {this.comments.concat(data.data); console.log("comments"+ this.comments)});
-
-//  console.log("comments"+this.commentss);
-//  this.commentss.forEach(element => {
-//   console.log("comments"+element);
-   
-//  });
+  this.CommentServise.findAll().subscribe(data => {this.comments=Object.values(data);this.test=this.comments[0];console.log(Object.values(this.test));this.comments=Object.values(this.test);this.test=this.comments[0] ;this.comments=Object.values(this.test);console.log(this.comments) } )
 
 }
 addComment(){
-  this.CommentServise.save(this.comt.value).subscribe((comment) => {console.log("contact",comment);this.comt.reset()});
-
+  this.CommentServise.save(this.comt.value).subscribe((comment) => {console.log("contact",comment);this.comt.reset});
+    
  
 }
 
